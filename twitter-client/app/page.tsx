@@ -7,8 +7,13 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { HiOutlineEnvelope } from "react-icons/hi2";
 import { FaRegBookmark } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
-import { Inter } from "next/font/google";
+import { Inter,Quicksand } from "next/font/google";
 import FeedCard from "@/components/FeedCard";
+import { FaMoneyBill } from "react-icons/fa6";
+import { SlOptions } from "react-icons/sl";
+
+
+
 const inter = Inter({subsets : ["latin"]})
 
 
@@ -40,12 +45,18 @@ const sideBarMenuItems: TwitterSideBarButton[] = [
     icon: <FaRegBookmark />,
   },
   {
+    title: "Premium",
+    icon: <FaMoneyBill />
+    ,
+  },
+  {
     title: "Profile",
     icon: <CiUser />,
   },
   {
-    title: "Twitter Blue",
-    icon: <GoHome />,
+    title: "More",
+    icon: <SlOptions />
+    ,
   },
   
 ]
@@ -55,24 +66,37 @@ export default function Home() {
     <div className="{inter.className">
 
       <div className="grid grid-cols-12 h-screen w-screen px-56">
-        <div className="col-span-3 justify-start pt-8 px-5">
-          <div className="text-4xl hover:bg-gray-800 rounded-full p-4 h-fit cursor-pointer transition-all w-fit">
+        <div className="col-span-3 pt-1 ml-20">
+          <div className="text-2xl hover:bg-gray-800 rounded-full p-4 h-fit cursor-pointer transition-all w-fit">
             <BsTwitter />
           </div>
 
-          <div className="mt-4 text-2xl  pr-4 ">
+          <div className="mt-1 text-1xl  pr-4 ">
             <ul>
-              {sideBarMenuItems.map(item => <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer" key={item.title}><span>{item.icon}</span> <span>{item.title}</span></li>)}
+              {sideBarMenuItems.map(item => <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit cursor-pointer" key={item.title}><span className="text-3xl">{item.icon}</span> <span>{item.title}</span></li>)}
             </ul>
 
-            <div className="mt-5 font-semibold">
-            <button className="bg-[#1d9bf0] p-4 rounded-full w-full  mx-4  text-lg">Tweet</button> 
+            <div className="mt-5 px-3">
+            <button className="bg-[#1d9bf0] px-3 rounded-full w-full text-lg py-2 font-semibold">Tweet</button> 
             </div>
 
           </div>
 
         </div>
-        <div className="col-span-6 border-l-[1px] border-r-[1px] border-gray-400">
+        <div className="col-span-6 border-l-[1px] border-r-[1px] h-screen overflow-scroll border-gray-600">
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
           <FeedCard />
         </div>
         <div className="col-span-3"></div>
